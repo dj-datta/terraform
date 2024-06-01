@@ -11,7 +11,7 @@ resource "aws_lb" "test" {
   enable_deletion_protection = true
 
   access_logs {
-    bucket  = arn:aws:s3:::mybuckdj
+    bucket  = "http://mybuckdj.s3-website-us-east-1.amazonaws.com"
     prefix  = "test-lb"
     enabled = true
   }
