@@ -24,7 +24,7 @@ resource "aws_iam_user_policy" "lb_ro" {
   user   = aws_iam_user.lb.name
   policy = data.aws_iam_policy_document.lb_ro.json
 }
-resource "aws_iam_user" "lb" {
+resource "aws_iam_user" "dj" {
   name          = "dj"
   path          = "/"
   force_destroy = true
