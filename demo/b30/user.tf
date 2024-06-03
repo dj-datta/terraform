@@ -3,7 +3,7 @@ provider "aws" {
 }
 resource "aws_iam_user" "lb" {
   name = "hema"
-  path = "/system/"
+  path = "/"
 
 }
 
@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "lb_ro" {
 }
 
 resource "aws_iam_user_policy" "lb_ro" {
-  name   = "test"
+  name   = "AdministratorAccess"
   user   = aws_iam_user.lb.name
   policy = data.aws_iam_policy_document.lb_ro.json
 }
