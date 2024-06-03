@@ -13,5 +13,5 @@ resource "aws_iam_user_login_profile" "example" {
 }
 
 output "password" {
-  value = User@123
+  value = "User123"
 }
