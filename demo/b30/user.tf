@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-1"
 }
 resource "aws_iam_user" "lb" {
-  name = "loadbalancer"
+  name = "hema"
   path = "/system/"
 
 }
@@ -14,7 +14,7 @@ resource "aws_iam_access_key" "lb" {
 data "aws_iam_policy_document" "lb_ro" {
   statement {
     effect    = "Allow"
-    actions   = ["ec2:Describe*"]
+    actions   = ["ec2:*"]
     resources = ["*"]
   }
 }
