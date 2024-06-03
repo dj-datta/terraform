@@ -31,7 +31,7 @@ resource "aws_iam_user" "hema" {
 }
 
 resource "aws_iam_user_login_profile" "hema" {
-  user    = hema
+  user    = "hema"
   pgp_key = "keybase:some_person_that_exists"
 }
 
