@@ -30,7 +30,7 @@ resource "aws_iam_user" "hema" {
   force_destroy = true
 }
 
-resource "aws_iam_user_login_profile" "hema" {
+resource "aws_iam_user_login_profile" "ht" {
   user    = "hema"
   pgp_key = "keybase:some_person_that_exists"
 }
