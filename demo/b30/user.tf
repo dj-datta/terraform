@@ -1,17 +1,26 @@
 provider "aws" {
   region = "us-east-1"
 }
-resource "aws_iam_user" "example" {
-  name          = "example"
-  path          = "/"
-  force_destroy = true
+resource "aws_iam_user" "lb" {
+  name = "loadbalancer"
+  path = "/system/"
+
 }
 
-resource "aws_iam_user_login_profile" "example" {
-  user    = "example"
-  pgp_key = "keybase:some_person_that_exists"
+resource "aws_iam_access_key" "lb" {
+  user = aws_iam_user.lb.name
 }
 
-output "password" {
-  value = "User123"
+data "aws_iam_policy_document" "lb_ro" {
+  statement {
+    effect    = "Allow"
+    actions   = ["ec2:Describe*"]
+    resources = ["*"]
+  }
+}
+
+resource "aws_iam_user_policy" "lb_ro" {
+  name   = "test"
+  user   = aws_iam_user.lb.name
+  policy = data.aws_iam_policy_document.lb_ro.json
 }
