@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-1"
 }
 resource "aws_iam_user" "lb" {
-  name = "hema"
+  name = "dj"
   path = "/"
 
 }
@@ -24,14 +24,14 @@ resource "aws_iam_user_policy" "lb_ro" {
   user   = aws_iam_user.lb.name
   policy = data.aws_iam_policy_document.lb_ro.json
 }
-resource "aws_iam_user" "hema" {
-  name          = "hema"
+resource "aws_iam_user" "lb" {
+  name          = "dj"
   path          = "/"
   force_destroy = true
 }
 
-resource "aws_iam_user_login_profile" "ht" {
-  user    = "hema"
+resource "aws_iam_user_login_profile" "lb_ro" {
+  user    = "dj"
   pgp_key = "keybase:some_person_that_exists"
 }
 
